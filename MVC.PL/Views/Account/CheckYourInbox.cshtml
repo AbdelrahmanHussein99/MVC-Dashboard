@@ -1,0 +1,25 @@
+﻿@model ForgetPasswordViewModel
+@{
+	ViewData["Title"] = "ForgetPassword";
+	Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="main-agileinfo">
+	<div asp-validation-summary="All"></div>
+	<div class="agileits-top">
+		
+		<p>Password Reset Link Has Been Send to Your Email, Please chech your inbox</p>
+		<p>
+			<a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank">your inbox</a>
+		</p>
+	</div>
+</div>
+
+
+@section ValidationScriptSection {
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

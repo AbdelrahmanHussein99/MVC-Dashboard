@@ -1,0 +1,34 @@
+﻿@model List<UserInRoleViewModel>
+@{
+    ViewData["Title"] = "AddOrRemoveUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var roleId = ViewData["id"] as string;
+}
+
+
+<h1 class="mb-4">Add Or Remove Users</h1>
+
+
+
+<form asp-action="AddOrRemoveUsers" asp-route-roleId="@roleId">
+
+
+    @for (int i=0;i<Model.Count;i++)
+    {
+        <div class="form-group">
+            <input asp-for="@Model[i].IsSelected" />
+            <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+        </div>
+
+        <input asp-for="@Model[i].UserName" type="hidden" />
+        <input asp-for="@Model[i].UserId" type="hidden"/>
+
+    }
+    <input type="submit" value="Update" class="btn btn-success" />
+    <a asp-action="Edit" asp-route-id="@roleId" class="btn btn-light">Cancel</a>
+</form>
+@section ValidationScriptSection {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
